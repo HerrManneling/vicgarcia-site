@@ -1,9 +1,369 @@
-h1{
-    text-align: center;
-    font-size: 3rem;
+/* ========================================
+   01 — FOUNDATION
+   ======================================== */
+
+/* Global box sizing */
+
+* {
+    box-sizing: border-box;
 }
 
-body{
-    background-color: black;
-    color: white;
+
+/* Page */
+
+body {
+    margin: 0;
+    background-color: #11151B;
+    color: #F1F3F5;
+}
+
+.hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10rem 2rem 8rem;
+}
+
+.hero-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: #3D8FEF;
+}
+
+.hero-title {
+    max-width: 850px;
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+.hero-support {
+    max-width: 600px;
+    margin-top: 2rem;
+    font-family: "IBM Plex Serif", serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+}
+
+.hero-cta {
+    display: inline-block;
+    margin-top: 2.5rem;
+    color: #4DA3FF;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid #3D8FEF;
+    padding-bottom: 0.25rem;
+}
+
+.hero-cta:hover {
+    color: #F1F3F5;
+    border-bottom-color: #4DA3FF;
+}
+
+/* ========================================
+   02 — TYPOGRAPHY
+   ======================================== */
+
+body {
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+/* ========================================
+   03 — NAVIGATION
+   ======================================== */
+
+header {
+    border-bottom: 1px solid #304156;
+}
+
+nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav > a {
+    color: #F1F3F5;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+nav > div {
+    display: flex;
+    gap: 2rem;
+}
+
+nav > div a {
+    color: #66788B;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 0.25rem;
+}
+
+nav > div a:hover {
+    color: #F1F3F5;
+    border-bottom-color: #3D8FEF;
+}
+
+/* ========================================
+   04 — SECTIONS
+   ======================================== */
+
+section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8rem 2rem;
+}
+
+/* Philosophy */
+
+.philosophy-title {
+    max-width: 800px;
+    font-family: "IBM Plex Serif", serif;
+    font-size: 2.75rem;
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+.philosophy-text {
+    max-width: 600px;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* Section rule */
+
+.section-rule {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 4rem;
+    color: #3D8FEF;
+    width: 100%;
+}
+
+.section-rule::before,
+.section-rule::after {
+    content: "";
+    height: 1px;
+    background-color: #304156;
+    flex: 0 1 120px;
+}
+
+.section-rule span {
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   05 — WORK
+   ======================================== */
+
+.work > h2 {
+    margin-bottom: 4rem;
+}
+
+.work-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5rem;
+    row-gap: 4rem;
+}
+
+.work-grid article {
+    padding: 2rem 0;
+    border-top: 1px solid #304156;
+}
+
+.work-grid h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.work-grid article p {
+    max-width: 450px;
+    margin-top: 1rem;
+    color: #66788B;
+    line-height: 1.6;
+}
+
+.work-grid article a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #3D8FEF;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.work-grid article a:hover {
+    color: #4DA3FF;
+    border-bottom-color: #4DA3FF;
+}
+
+/* ========================================
+   06 — THINKING WORKSHOP
+   ======================================== */
+
+.think-title {
+    max-width: 800px;
+    font-family: "IBM Plex Serif", serif;
+    font-size: 2.75rem;
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+.think-process {
+    margin-top: 3rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.85rem;
+    color: #66788B;
+    letter-spacing: 0.04em;
+}
+
+/* ========================================
+   07 — SYSTEM
+   ======================================== */
+
+.system-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5rem;
+    row-gap: 4rem;
+}
+
+
+.system-heading {
+    align-self: start;
+}
+
+
+.system-label {
+    margin: 0;
+
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+
+    color: #3D8FEF;
+}
+
+
+.system-title {
+    margin-top: 1.5rem;
+
+    font-family: "IBM Plex Serif", serif;
+    font-size: 2.75rem;
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+
+.system-text {
+    max-width: 500px;
+    align-self: end;
+}
+
+
+.system-text p {
+    margin: 0;
+
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* ========================================
+   08 — CONTACT
+   ======================================== */
+
+.contact {
+    border-top: 1px solid #304156;
+    padding: 8rem 2rem 2rem;
+}
+
+
+.contact-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+.contact-label {
+    margin: 0;
+
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+
+    color: #3D8FEF;
+}
+
+
+.contact-title {
+    margin-top: 1.5rem;
+
+    font-family: "IBM Plex Serif", serif;
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+
+.contact-text {
+    max-width: 500px;
+    margin-top: 2rem;
+
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+
+.contact-email {
+    display: inline-block;
+    margin-top: 2rem;
+
+    color: #4DA3FF;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+
+    border-bottom: 1px solid #3D8FEF;
+    padding-bottom: 0.25rem;
+}
+
+
+.contact-email:hover {
+    color: #F1F3F5;
+    border-bottom-color: #4DA3FF;
+}
+
+
+/* ========================================
+   09 — FOOTER
+   ======================================== */
+
+.footer-bottom {
+    max-width: 1100px;
+    margin: 8rem auto 0;
+    padding-top: 1rem;
+
+    border-top: 1px solid #304156;
+}
+
+
+.footer-bottom p {
+    margin: 0;
+
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    color: #66788B;
 }
