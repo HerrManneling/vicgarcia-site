@@ -11,10 +11,29 @@
 
 /* Page */
 
+body::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='1600' viewBox='0 0 1000 1600' preserveAspectRatio='none'%3E%3Cline x1='65' y1='180' x2='580' y2='180' stroke='%23304156' stroke-opacity='.25' stroke-width='1'/%3E%3Cline x1='760' y1='0' x2='760' y2='330' stroke='%23304156' stroke-opacity='.25' stroke-width='1'/%3E%3Cline x1='330' y1='410' x2='930' y2='410' stroke='%23304156' stroke-opacity='.25' stroke-width='1'/%3E%3Cline x1='180' y1='560' x2='180' y2='880' stroke='%23304156' stroke-opacity='.25' stroke-width='1'/%3E%3Cline x1='470' y1='700' x2='850' y2='700' stroke='%23304156' stroke-opacity='.25' stroke-width='1'/%3E%3Cline x1='690' y1='820' x2='690' y2='1160' stroke='%23304156' stroke-opacity='.25' stroke-width='1'/%3E%3Cline x1='40' y1='1010' x2='440' y2='1010' stroke='%23304156' stroke-opacity='.25' stroke-width='1'/%3E%3Cline x1='280' y1='1240' x2='900' y2='1240' stroke='%23304156' stroke-opacity='.25' stroke-width='1'/%3E%3Cline x1='120' y1='1380' x2='120' y2='1600' stroke='%23304156' stroke-opacity='.25' stroke-width='1'/%3E%3Cline x1='540' y1='1460' x2='980' y2='1460' stroke='%23304156' stroke-opacity='.25' stroke-width='1'/%3E%3C/svg%3E");
+
+    background-repeat: repeat-y;
+    background-size: 100% 1600px;
+    background-position: top center;
+
+}
+
 body {
+    position: relative;
     margin: 0;
     background-color: #11151B;
     color: #F1F3F5;
+    font-family: "IBM Plex Sans", sans-serif;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.008'/%3E%3C/svg%3E");
 }
 
 .hero {
@@ -65,26 +84,34 @@ body {
    02 — TYPOGRAPHY
    ======================================== */
 
-body {
-    font-family: "IBM Plex Sans", sans-serif;
-}
+
 
 /* ========================================
    03 — NAVIGATION
    ======================================== */
 
 header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background-color: rgba(17, 21, 27, 0.94);
     border-bottom: 1px solid #304156;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 nav {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 1.5rem 2rem;
+    padding: 1.25rem 2rem;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    position: relative;
 }
 
 nav > a {
@@ -94,22 +121,29 @@ nav > a {
     text-decoration: none;
 }
 
-nav > div {
+.nav-links {
     display: flex;
     gap: 2rem;
 }
 
-nav > div a {
+.nav-links a {
     color: #66788B;
     text-decoration: none;
     font-size: 0.9rem;
+
     border-bottom: 1px solid transparent;
     padding-bottom: 0.25rem;
 }
 
-nav > div a:hover {
+.nav-links a:hover {
     color: #F1F3F5;
     border-bottom-color: #3D8FEF;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #4DA3FF;
+    outline-offset: 4px;
 }
 
 /* ========================================
@@ -366,4 +400,113 @@ section {
     font-family: "IBM Plex Mono", monospace;
     font-size: 0.7rem;
     color: #66788B;
+}
+
+/* ========================================
+   10 — RESPONSIVE
+   ======================================== */
+
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 700px) {
+
+    nav {
+        padding: 1rem 1.25rem;
+    }
+
+    nav > a {
+        font-size: 1rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+
+    section {
+        padding: 5rem 1.25rem;
+    }
+
+    .hero {
+        padding: 7rem 1.25rem 5rem;
+    }
+
+    .hero-title {
+        font-size: 2.75rem;
+    }
+
+    .hero-support {
+        font-size: 1.15rem;
+    }
+
+    .philosophy-title,
+    .think-title,
+    .system-title {
+        font-size: 2.25rem;
+    }
+
+    .work-grid,
+    .system-grid {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: 1rem;
+    }
+
+    .contact {
+        padding: 5rem 1.25rem 1.5rem;
+    }
+
+    .contact-title {
+        font-size: 2.75rem;
+    }
+
+    .footer-bottom {
+        margin-top: 5rem;
+    }
+
+    .menu-toggle {
+        display: block;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: #F1F3F5;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 1.4rem;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.menu-open {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        padding: 2rem 1.25rem 2.5rem;
+
+        background-color: rgba(17, 21, 27, 0.97);
+        border-bottom: 1px solid #304156;
+
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    .nav-links.menu-open a {
+        font-size: 1rem;
+        color: #F1F3F5;
+    }
+
 }
